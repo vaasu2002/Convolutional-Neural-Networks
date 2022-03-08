@@ -23,3 +23,13 @@ model = Sequential([
     Dense(5, activation='softmax')
 ])
 ```
+- Image Size for the model -> 256 * 256 
+- **IMAGE PRE PROCESSING**
+```ruby
+def preprocess_image(path):
+    img = load_img(path, target_size = (256, 256))
+    a = img_to_array(img)
+    a = np.expand_dims(a, axis = 0)
+    a /= 255.0
+    return a
+```
