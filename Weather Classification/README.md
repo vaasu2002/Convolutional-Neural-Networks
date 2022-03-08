@@ -1,6 +1,18 @@
 # Weather Classification
 - Dataset-> https://drive.google.com/drive/folders/1GZGLVJIVlv3lMxJ-sBzzZqWJPrjsnXrx?usp=sharing
-- Model->
+
+- Image Size for the model -> 256 * 256 
+- **IMAGE PRE PROCESSING**
+```ruby
+def preprocess_image(path):
+    img = load_img(path, target_size = (256, 256))
+    a = img_to_array(img)
+    a = np.expand_dims(a, axis = 0)
+    a /= 255.0
+    return a
+```
+## Model
+-   https://drive.google.com/file/d/1GyosB3zgeKjQ5B0OGpPZl89VUcMshinB/view?usp=sharing
 ```ruby
 model = Sequential([
     Conv2D(16, (3, 3), activation='relu', input_shape=(256, 256, 3)),
@@ -22,14 +34,4 @@ model = Sequential([
     Dense(512, activation='relu'),
     Dense(5, activation='softmax')
 ])
-```
-- Image Size for the model -> 256 * 256 
-- **IMAGE PRE PROCESSING**
-```ruby
-def preprocess_image(path):
-    img = load_img(path, target_size = (256, 256))
-    a = img_to_array(img)
-    a = np.expand_dims(a, axis = 0)
-    a /= 255.0
-    return a
 ```
