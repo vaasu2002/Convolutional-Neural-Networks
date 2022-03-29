@@ -8,7 +8,7 @@ datagen = ImageDataGenerator(
         shear_range=0.2,
         zoom_range=0.2,
         horizontal_flip=True,
-        fill_mode='constant', cval=125)    #Also try nearest, constant, reflect, wrap
+        fill_mode='reflect', cval=125)    #Also try nearest, constant, contant, wrap  -> REFLECT BEST
         
 x = io.imread('/content/folder/car_0_1026.jpeg') 
 x.shape  # (200, 200, 3)
